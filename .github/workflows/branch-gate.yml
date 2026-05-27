@@ -1,0 +1,64 @@
+name: Branch Gate
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GitHub Action — Branch Routing & Governance System (BRGS) L4
+#
+# Runs on every push to verify that modified files don't violate
+# the branch_routing rules from multi-repo-governance.yaml.
+#
+# This is a NON-BLOQUING second defense layer — it creates a commit
+# status check and comments violations but does not prevent the push.
+#
+# IntentHash: 0xBRG_GITHUB_ACTION_20260526
+# Version: 1.0.0
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches-ignore:
+      - "dependabot/**"
+      - "renovate/**"
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  ownership-check:
+    name: "BRGS — Branch Ownership Check"
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Check branch ownership
+        id: check
+        env:
+          GOVERNANCE_HUB_PATH: ${{ secrets.GOVERNANCE_HUB_PATH }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          BRANCH_NAME: ${{ github.ref_name }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: python .github/scripts/check_ownership.py
+
+      - name: Report status
+        if: always()
+        run: |
+          if [ "${{ steps.check.outcome }}" = "success" ]; then
+            echo "✅ BRGS check passed"
+          else
+            echo "⚠️  BRGS check found violations (see annotations above)"
+          fi

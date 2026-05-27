@@ -1,0 +1,301 @@
+#!/usr/bin/env bash
+# ─────────────────────────────────────────────────────────────────────────────
+# pre-push hook — Branch Routing & Governance System (BRGS) v3.0
+#
+# Guards:
+#   Guard 1: Remote URL validation (EXISTANT)
+#   Guard 2: Ancestry check (EXISTANT)
+#   Guard 3: Forbidden paths check (NOUVEAU — BRGS)
+#   Guard 4: Branch prefix validation (NOUVEAU — BRGS)
+#
+# IntentHash: 0xBRG_PRE_PUSH_20260526
+# Version: 3.0.0
+# ─────────────────────────────────────────────────────────────────────────────
+
+set -euo pipefail
+
+REMOTE_NAME="$1"
+REMOTE_URL="$2"
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "DETACHED")
+REPO_ROOT=$(git rev-parse --show-toplevel)
+REPO_NAME=$(basename "${REPO_ROOT}")
+
+echo "[BRGS pre-push] Validating push → ${REMOTE_NAME} (${REMOTE_URL})"
+echo "[BRGS pre-push] Branch: ${CURRENT_BRANCH}"
+echo "[BRGS pre-push] Repo:   ${REPO_NAME}"
+
+# ── Manifest detection ───────────────────────────────────────────────────────
+# Search order:
+#   1. $GOVERNANCE_HUB_PATH environment variable
+#   2. Absolute path D:\DO\WEB\TOOLS\L0-CANON\GOVERNANCE-HUB
+#   3. Fallback hardcodé (DevTools only)
+
+MANIFEST_PATH=""
+GOVERNANCE_HUB_PATH="${GOVERNANCE_HUB_PATH:-}"
+
+if [ -n "${GOVERNANCE_HUB_PATH}" ] && [ -f "${GOVERNANCE_HUB_PATH}/multi-repo-governance.yaml" ]; then
+    MANIFEST_PATH="${GOVERNANCE_HUB_PATH}/multi-repo-governance.yaml"
+    echo "[BRGS pre-push] Manifest: ${MANIFEST_PATH} (from env)"
+elif [ -f "D:/DO/WEB/TOOLS/L0-CANON/GOVERNANCE-HUB/multi-repo-governance.yaml" ]; then
+    MANIFEST_PATH="D:/DO/WEB/TOOLS/L0-CANON/GOVERNANCE-HUB/multi-repo-governance.yaml"
+    echo "[BRGS pre-push] Manifest: ${MANIFEST_PATH} (absolute path)"
+else
+    echo "[BRGS pre-push] ⚠️  Manifest not found — using fallback rules"
+    MANIFEST_PATH=""
+fi
+
+# ── Generate rules.sh if manifest is available ────────────────────────────────
+RULES_FILE="${REPO_ROOT}/.githooks/rules.sh"
+
+if [ -n "${MANIFEST_PATH}" ] && [ -f "${REPO_ROOT}/.githooks/generate_rules.py" ]; then
+    python "${REPO_ROOT}/.githooks/generate_rules.py" "${MANIFEST_PATH}" "${REPO_NAME}" "${RULES_FILE}" 2>/dev/null || true
+fi
+
+# ── Load rules (from generated file or fallback) ──────────────────────────────
+FORBIDDEN_PATHS=""
+ALLOWED_PREFIXES=""
+REDIRECT_MAP=""
+GUARD_MODE="BLOCK"
+
+if [ -f "${RULES_FILE}" ]; then
+    source "${RULES_FILE}"
+    echo "[BRGS pre-push] Rules loaded from ${RULES_FILE}"
+else
+    # Fallback rules for DevTools (minimal safety net)
+    echo "[BRGS pre-push] ⚠️  Using fallback rules — run generate_rules.py for full configuration"
+    if [ "${REPO_NAME}" = "DevTools" ]; then
+        FORBIDDEN_PATHS="src/ecos/|.ecos/|.kilocode/|bin/"
+        ALLOWED_PREFIXES="devtools/|fix/|chore/|docs/|refactor/"
+        REDIRECT_MAP="src/ecos/:gerivdb/ECOS-CLI|.ecos/:gerivdb/ECOYSTEM|.kilocode/:gerivdb/ECOS-CLI|bin/:gerivdb/ECOS-CLI"
+    fi
+fi
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Guard 1: Remote URL validation (EXISTANT)
+# ═══════════════════════════════════════════════════════════════════════════════
+ECOS_REGISTRY="ECOS_ROOT.json"
+
+if [ -f "${REPO_ROOT}/${ECOS_REGISTRY}" ]; then
+    EXPECTED_PATTERN="gerivdb/${REPO_NAME}"
+    if ! echo "${REMOTE_URL}" | grep -q "${EXPECTED_PATTERN}"; then
+        echo "[BRGS pre-push] ❌ BLOCKED: Remote URL mismatch!"
+        echo "  Expected pattern : ${EXPECTED_PATTERN}"
+        echo "  Got              : ${REMOTE_URL}"
+        echo "  Fix: git remote set-url origin https://github.com/${EXPECTED_PATTERN}.git"
+        exit 1
+    fi
+    echo "[BRGS pre-push] ✅ Guard 1 — Remote URL validated: ${REMOTE_URL}"
+else
+    echo "[BRGS pre-push] ✅ Guard 1 — No ECOS_ROOT.json, skipping remote validation"
+fi
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Guard 2: Ancestry check (EXISTANT)
+# ═══════════════════════════════════════════════════════════════════════════════
+if [ "${CURRENT_BRANCH}" != "main" ] && [ "${CURRENT_BRANCH}" != "dev" ]; then
+    MERGE_BASE=$(git merge-base HEAD origin/main 2>/dev/null || echo "")
+    MAIN_TIP=$(git rev-parse origin/main 2>/dev/null || echo "")
+
+    if [ -z "${MERGE_BASE}" ]; then
+        echo "[BRGS pre-push] ⚠️  Guard 2 — Cannot verify ancestry (origin/main not fetched)"
+        echo "  Run: git fetch origin main"
+    else
+        COMMITS_AHEAD=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo "0")
+        COMMITS_BEHIND=$(git rev-list --count HEAD..origin/main 2>/dev/null || echo "0")
+        CHANGED_FILES=$(git diff --name-only origin/main...HEAD 2>/dev/null | wc -l | tr -d ' ')
+
+        echo "[BRGS pre-push] Guard 2 — Branch stats:"
+        echo "  Commits ahead of main  : ${COMMITS_AHEAD}"
+        echo "  Commits behind main    : ${COMMITS_BEHIND}"
+        echo "  Files changed vs main  : ${CHANGED_FILES}"
+
+        if [ "${CHANGED_FILES}" -gt 200 ]; then
+            echo "[BRGS pre-push] ❌ BLOCKED: ${CHANGED_FILES} files changed — ancestry mismatch suspected!"
+            echo "  Expected: < 200 files for a feature branch"
+            echo "  Fix: Run scripts/Repair-BranchAncestry.ps1 -BranchName ${CURRENT_BRANCH}"
+            exit 1
+        fi
+
+        if [ "${COMMITS_BEHIND}" -gt 100 ]; then
+            echo "[BRGS pre-push] ❌ BLOCKED: Branch is ${COMMITS_BEHIND} commits behind main — rebase required"
+            echo "  Fix: git fetch origin && git rebase origin/main"
+            exit 1
+        fi
+
+        echo "[BRGS pre-push] ✅ Guard 2 — Ancestry validated (${CHANGED_FILES} files, ${COMMITS_AHEAD} commits ahead)"
+    fi
+else
+    echo "[BRGS pre-push] ✅ Guard 2 — Skipping (on ${CURRENT_BRANCH})"
+fi
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Guard 3: Forbidden paths check (NOUVEAU — BRGS)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+guard3_check() {
+    if [ -z "${FORBIDDEN_PATHS}" ]; then
+        echo "[BRGS pre-push] ✅ Guard 3 — No forbidden paths configured, skipping"
+        return 0
+    fi
+
+    # Get changed files vs origin/main (three-dot: changes on this branch only)
+    local changed_files
+    changed_files=$(git diff --name-only HEAD...origin/main 2>/dev/null || git diff --name-only HEAD 2>/dev/null || echo "")
+
+    if [ -z "${changed_files}" ]; then
+        echo "[BRGS pre-push] ✅ Guard 3 — No changed files detected, skipping"
+        return 0
+    fi
+
+    local violated_files=""
+    local redirect_target=""
+
+    # Split forbidden paths by | and check each
+    local OLD_IFS="${IFS}"
+    IFS='|'
+    local fp
+    for fp in ${FORBIDDEN_PATHS}; do
+        [ -z "${fp}" ] && continue
+        # Remove trailing slash for prefix matching
+        local prefix="${fp%/}"
+
+        while IFS= read -r file; do
+            [ -z "${file}" ] && continue
+            # Check if file starts with forbidden prefix
+            case "${file}" in
+                ${prefix}*)
+                    violated_files="${violated_files}${file}\n"
+                    # Find redirect target from REDIRECT_MAP
+                    if [ -n "${REDIRECT_MAP}" ]; then
+                        local r
+                        IFS='|'
+                        for r in ${REDIRECT_MAP}; do
+                            local r_src="${r%%:*}"
+                            local r_dst="${r##*:}"
+                            if [ "${r_src}" = "${fp}" ] || [ "${r_src}" = "${prefix}/" ]; then
+                                redirect_target="${r_dst}"
+                                break
+                            fi
+                        done
+                        IFS='|'
+                    fi
+                    ;;
+            esac
+        done <<< "${changed_files}"
+    done
+    IFS="${OLD_IFS}"
+
+    if [ -n "${violated_files}" ]; then
+        echo ""
+        echo "[BRGS pre-push] ❌ BLOCKED: Forbidden paths detected in ${REPO_NAME}"
+        echo "  Modified files in forbidden paths:"
+        echo -e "${violated_files}" | while IFS= read -r vf; do
+            [ -z "${vf}" ] && continue
+            echo "    ${vf}"
+        done
+
+        if [ -n "${redirect_target}" ]; then
+            echo ""
+            echo "  These paths belong to: ${redirect_target}"
+            echo ""
+            echo "  Fix:"
+            echo "    git stash"
+            echo "    cd <path/to/${redirect_target}>"
+            echo "    git checkout -b <prefix>/feat/your-branch"
+            echo "    git stash pop"
+            echo "    git add . && git commit -m \"feat: your feature\""
+            echo "    git push origin <prefix>/feat/your-branch"
+        fi
+
+        echo ""
+        echo "  Bypass (NOT recommended): git push --no-verify"
+        echo ""
+        return 1
+    fi
+
+    echo "[BRGS pre-push] ✅ Guard 3 — No forbidden path violations"
+    return 0
+}
+
+guard3_check || exit 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Guard 4: Branch prefix validation (NOUVEAU — BRGS)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+guard4_check() {
+    if [ -z "${ALLOWED_PREFIXES}" ]; then
+        echo "[BRGS pre-push] ✅ Guard 4 — No branch prefix rules configured, skipping"
+        return 0
+    fi
+
+    # Skip prefix check for main/dev branches
+    if [ "${CURRENT_BRANCH}" = "main" ] || [ "${CURRENT_BRANCH}" = "dev" ]; then
+        echo "[BRGS pre-push] ✅ Guard 4 — Skipping prefix check for ${CURRENT_BRANCH}"
+        return 0
+    fi
+
+    local prefix_matched=0
+    local p
+
+    local OLD_IFS="${IFS}"
+    IFS='|'
+    for p in ${ALLOWED_PREFIXES}; do
+        [ -z "${p}" ] && continue
+        # Remove trailing slash for matching
+        local clean_p="${p%/}"
+        case "${CURRENT_BRANCH}" in
+            ${clean_p}*)
+                prefix_matched=1
+                break
+                ;;
+        esac
+    done
+    IFS="${OLD_IFS}"
+
+    if [ "${prefix_matched}" -eq 0 ]; then
+        echo ""
+        echo "[BRGS pre-push] ❌ BLOCKED: Branch prefix mismatch in ${REPO_NAME}"
+        echo "  Branch: ${CURRENT_BRANCH}"
+        echo "  Allowed prefixes:"
+        IFS='|'
+        for p in ${ALLOWED_PREFIXES}; do
+            [ -z "${p}" ] && continue
+            echo "    ${p}"
+        done
+        IFS="${OLD_IFS}"
+
+        # Check if the branch prefix matches another repo's prefix
+        if [ -n "${REDIRECT_MAP}" ]; then
+            local suggested=""
+            # Check if branch starts with a known repo prefix
+            local bp="${CURRENT_BRANCH%%/*}"
+            case "${bp}" in
+                ecos-cli|ecosystem|devtools|fluence|brain|nexus|kiva-cli|governance)
+                    suggested="${bp}"
+                    ;;
+            esac
+            if [ -n "${suggested}" ]; then
+                echo ""
+                echo "  The branch name suggests this belongs to ${suggested^^}."
+                local new_branch="${suggested}/${CURRENT_BRANCH}"
+                echo "  Suggested: git checkout -b ${new_branch}"
+            fi
+        fi
+
+        echo ""
+        echo "  Bypass (NOT recommended): git push --no-verify"
+        echo ""
+        return 1
+    fi
+
+    echo "[BRGS pre-push] ✅ Guard 4 — Branch prefix validated (${CURRENT_BRANCH})"
+    return 0
+}
+
+guard4_check || exit 1
+
+# ── All guards passed ────────────────────────────────────────────────────────
+echo ""
+echo "[BRGS pre-push] ✅ All guards passed — proceeding with push"
+exit 0
