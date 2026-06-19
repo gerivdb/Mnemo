@@ -144,8 +144,96 @@ export interface TranscriptEventInput {
 }
 
 /**
- * Helper function to normalize timestamps from various formats
+ * JSON-LD serialization helpers — ADR-v3-001
+ * Import from ./jsonld-context for the context and envelope
  */
+
+import { createJsonLdEnvelope } from '../jsonld-context.js';
+
+export function sessionRowToJsonLd(row: SessionRow) {
+  return createJsonLdEnvelope({
+    "@type": "MnemoSession",
+    "sessionId": row.session_id,
+    "project": row.project,
+    "createdAt": row.created_at,
+    "source": row.source,
+    "nexusStatus": row.archived_at ? "archived" : "active",
+    ...(row.archived_at && { "archivedAt": row.archived_at }),
+    ...(row.metadata_json && { "metadata": JSON.parse(row.metadata_json) }),
+  });
+}
+
+export function memoryRowToJsonLd(row: MemoryRow) {
+  return createJsonLdEnvelope({
+    "@type": "MnemoMemory",
+    "sessionId": row.session_id,
+    "project": row.project,
+    "text": row.text,
+    "createdAt": row.created_at,
+    "origin": row.origin,
+    ...(row.title && { "title": row.title }),
+    ...(row.subtitle && { "subtitle": row.subtitle }),
+    ...(row.facts && { "facts": JSON.parse(row.facts) }),
+    ...(row.concepts && { "concepts": JSON.parse(row.concepts) }),
+    ...(row.files_touched && { "filesTouched": JSON.parse(row.files_touched) }),
+    ...(row.keywords && { "keywords": JSON.parse(row.keywords) }),
+  });
+}
+
+export function observationRowToJsonLd(row: ObservationRow) {
+  return createJsonLdEnvelope({
+    "@type": "MnemoObservation",
+    "sessionId": row.memory_session_id,
+    "project": row.project,
+    "text": row.text,
+    "type": row.type,
+    "createdAt": row.created_at,
+    "discoveryTokens": row.discovery_tokens,
+    ...(row.title && { "title": row.title }),
+    ...(row.subtitle && { "subtitle": row.subtitle }),
+    ...(row.facts && { "facts": JSON.parse(row.facts) }),
+    ...(row.concepts && { "concepts": JSON.parse(row.concepts) }),
+    ...(row.narrative && { "narrative": row.narrative }),
+    ...(row.files_read && { "filesTouched": JSON.parse(row.files_read) }),
+    ...(row.files_modified && { "filesModified": JSON.parse(row.files_modified) }),
+  });
+}
+
+export function diagnosticRowToJsonLd(row: DiagnosticRow) {
+  return createJsonLdEnvelope({
+    "@type": "MnemoDiagnostic",
+    "sessionId": row.session_id,
+    "project": row.project,
+    "message": row.message,
+    "severity": row.severity,
+    "createdAt": row.created_at,
+    "origin": row.origin,
+  });
+}
+
+export function transcriptEventRowToJsonLd(row: TranscriptEventRow) {
+  return createJsonLdEnvelope({
+    "@type": "MnemoTranscriptEvent",
+    "sessionId": row.session_id,
+    "project": row.project,
+    "eventIndex": row.event_index,
+    "eventType": row.event_type,
+    "createdAt": row.captured_at,
+  });
+}
+
+export function searchOptionsToJsonLd(options: SearchOptions) {
+  return createJsonLdEnvelope({
+    "limit": options.limit ?? 50,
+    "offset": options.offset ?? 0,
+    "orderBy": options.orderBy ?? "relevance",
+    ...(options.project && { "project": options.project }),
+    ...(options.type && { "type": options.type }),
+    ...(options.concepts && { "concepts": options.concepts }),
+    ...(options.files && { "filesTouched": options.files }),
+    ...(options.dateRange && { "dateRange": options.dateRange }),
+  });
+}
 export function normalizeTimestamp(timestamp: string | Date | number | undefined): { isoString: string; epoch: number } {
   let date: Date;
   
