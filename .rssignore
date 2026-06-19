@@ -1,0 +1,3 @@
+# RSS-v2 ignore rules for Mnemo
+# Skip depth check — TypeScript plugin with deep src/ structure (src/services/worker/...)
+skip-depth-check

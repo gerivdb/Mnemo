@@ -7,7 +7,7 @@ dist/
 .env
 .env.local
 *.tmp
-*.temp
+.temp
 .install-version
 .claude/settings.local.json
 .claude/agents/
@@ -38,3 +38,13 @@ src/ui/viewer.html
 
 # Local contribution analysis (not part of upstream)
 CONTRIB_NOTES.md
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+*.so
+
+# OS files
+Thumbs.db
