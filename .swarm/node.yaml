@@ -1,0 +1,16 @@
+# .swarm/node.yaml — Carte d'identité holographique
+# Chaque repo gerivdb possède ce fichier : c'est son ADN dans l'organisme
+# IntentHash: 0xSWARM_NODE_GENOME_20260622
+node:
+  name: Mnemo
+  full_name: gerivdb/Mnemo
+  url: https://github.com/gerivdb/Mnemo
+  layer: L4_TOOLS
+  strate: L4_TOOLS
+  role: "Outil: Mnemo"
+  lens: cold
+  phi_cps: 1.0
+  thousand_brains_ref: false
+  do_not_create: true
+  upstream: ["NEXUS"]
+  downstream: []
