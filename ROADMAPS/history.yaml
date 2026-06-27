@@ -1,0 +1,15 @@
+amendments: []
+date: '2026-06-27'
+entries:
+- action: creation
+  actor: Kilo agent (phase2-generator)
+  changes:
+  - Création ROADMAPS/ avec 5 fichiers
+  date: '2026-06-27T00:15:47+00:00'
+  description: Phase 2 — génération automatique de la roadmap (minimale, aucun intent
+    formalisé)
+  intent_hash: 0XMNEMO_ROADMAP_V1_20260627
+intent_hash: 0XMNEMO_ROADMAP_V1_20260627
+repo: gerivdb/Mnemo
+type: ROADMAP_HISTORY
+version: '1.0'
