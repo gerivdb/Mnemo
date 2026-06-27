@@ -1,0 +1,25 @@
+date: '2026-06-27'
+intent_hash: 0XMNEMO_ROADMAP_V1_20260627
+milestones:
+- dependencies: []
+  description: Création de la structure ROADMAPS/ (phase 2)
+  id: M-001
+  name: ROADMAPS/ initial
+  owner: Mnemo core
+  reference: ADR-20260625-003-VECTUS
+  status: done
+  target_date: '2026-06-27'
+  unlocks:
+  - INTENT_COLLECTOR
+- dependencies:
+  - M-001
+  description: Créer les intents manquants pour ce repo
+  id: M-002
+  name: Formalisation des intents
+  owner: Mnemo core
+  status: not_started
+  target_date: '2026-07-26'
+  unlocks: []
+repo: gerivdb/Mnemo
+type: ROADMAP_MILESTONES
+version: '1.0'
