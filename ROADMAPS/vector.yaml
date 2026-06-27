@@ -1,0 +1,43 @@
+date: '2026-06-27'
+intent_hash: 0XMNEMO_ROADMAP_V2_20260627
+repo: gerivdb/Mnemo
+type: ROADMAP_VECTOR
+vector:
+  _inference_source: auto-generated (phase 2 — minimal)
+  _inferred: false
+  dimensions:
+    d0_stabilisation: 0.2
+    d1_extension: 0.1
+    d2_integration: 0.2
+    d3_formalisation: 0.1
+    d4_deprecation: 0.1
+    d5_performance: 0.1
+    d6_gouvernance: 0.2
+    d7_experimentation: 0.1
+  direction:
+  - 'maintenir role: Mnemo'
+  - stabiliser les opérations courantes
+  - préparer l'intégration VECTUS-03
+  horizon: 90d
+  last_amended: '2026-06-27T00:15:47+00:00'
+  mass: 0.3
+  thought_commits:
+  - date: '2026-06-27'
+    delta_vector:
+    - 0.2
+    - 0.1
+    - 0.2
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.2
+    - 0.1
+    event: phase2_minimal_generation
+    significance: 0.6
+  velocity_observed: 0.1
+  vision_layer:
+    fractale_strate: 'Roadmap initiale — aucun intent formalisé. Layer: L4-TOOLS.'
+    holovision: 'Mnemo est un composant du méta-cluster gerivdb. Trajectoire : stable,
+      intégré, prêt pour VECTUS-03.'
+    omnivision_role: Vue unifiée des opérations de Mnemo.
+version: '2.0'
