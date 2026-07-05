@@ -1,0 +1,85 @@
+# GitHub Actions Reusable Workflow - RSS-v2
+# Généré par SABRE + RIDDLER pipeline
+# IntentHash: 0xRSS_V2_REUSABLE_WORKFLOW_20260705
+
+name: "RSS-v2 Reusable Checks"
+
+on:
+  workflow_call:
+    inputs:
+      repo-path:
+        description: 'Path to repository to check'
+        required: false
+        default: '.'
+      check-profile:
+        description: 'Validate RSS profile compliance'
+        required: false
+        default: 'true'
+      check-security:
+        description: 'Run security scans'
+        required: false
+        default: 'false'
+
+jobs:
+  rss-lint:
+    name: RSS-v2 Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repo-path != '.' && inputs.repo-path || '' }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Run RSS-v2 linter
+        run: |
+          python scripts/rss_lint.py \
+            --repo "${{ inputs.repo-path }}" \
+            --all-checks \
+            --check-profile "${{ inputs.check-profile }}"
+
+  branch-check:
+    name: Branch Naming Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check branch name
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          VALID_PATTERN="^(feature|fix|refactor|docs|chore|adr|meta|test|wip)/.+|^(main|develop)$|^adr-.+"
+          if ! echo "${BRANCH}" | grep -qE "${VALID_PATTERN}"; then
+            echo "::error::Branch '${BRANCH}' does not follow RSS-v1 naming convention."
+            exit 1
+          fi
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    if: ${{ inputs.check-security == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run pip-audit
+        run: |
+          pip install pip-audit
+          pip-audit --format=json || true
+
+      - name: Run Trivy SBOM
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          format: 'spdx-json'
+          output: 'sbom.spdx.json'
+          severity: 'CRITICAL,HIGH'
+
+outputs:
+  conformity-score:
+    description: 'Percentage of checks passed'
+    value: ${{ steps.rss-lint.outcome == 'success' && '100' || '0' }}
