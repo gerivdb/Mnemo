@@ -1,0 +1,16 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ascii-fixer
+        name: ASCII Fixer (auto-correction)
+        entry: python tools/ascii_fix.py --fix
+        language: system
+        pass_filenames: true
+        stages: [pre-commit]
+      - id: gate-6
+        name: GATE-6 ASCII Validator
+        entry: python tools/check_ascii.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        verbose: true

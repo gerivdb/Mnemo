@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "description": "ASCII substitution mapping for pre-commit hooks",
+  
+  "french": {
+    "\u00e9": "e",
+    "\u00e8": "e",
+    "\u00ea": "e",
+    "\u00eb": "e",
+    "\u00e0": "a",
+    "\u00e2": "a",
+    "\u00e4": "a",
+    "\u00f9": "u",
+    "\u00fb": "u",
+    "\u00fc": "u",
+    "\u00f4": "o",
+    "\u00f6": "o",
+    "\u00ee": "i",
+    "\u00ef": "i",
+    "\u00e7": "c",
+    "\u00ff": "y"
+  },
+  
+  "french_upper": {
+    "\u00c9": "E",
+    "\u00c8": "E",
+    "\u00ca": "E",
+    "\u00cb": "E",
+    "\u00c0": "A",
+    "\u00c2": "A",
+    "\u00c4": "A",
+    "\u00d9": "U",
+    "\u00db": "U",
+    "\u00dc": "U",
+    "\u00d4": "O",
+    "\u00d6": "O",
+    "\u00ce": "I",
+    "\u00cf": "I",
+    "\u00c7": "C"
+  },
+  
+  "punctuation": {
+    "\u2026": "...",
+    "\u2013": "-",
+    "\u2014": "--",
+    "\u00ab": "\"",
+    "\u00bb": "\""
+  },
+  
+  "arrows": {
+    "\u2192": "->",
+    "\u2193": "v",
+    "\u2191": "^",
+    "\u2190": "<-",
+    "\u2194": "<->"
+  },
+  
+  "currency": {
+    "\u20ac": "EUR",
+    "\u00a3": "GBP",
+    "\u00a5": "JPY"
+  },
+  
+  "math": {
+    "\u00b0": "deg",
+    "\u00b1": "+/-",
+    "\u00d7": "x",
+    "\u00f7": "/",
+    "\u00bc": "1/4",
+    "\u00bd": "1/2",
+    "\u00be": "3/4"
+  },
+  
+  "checkmarks": {
+    "\u2713": "OK",
+    "\u2717": "X",
+    "\u2714": "OK",
+    "\u2715": "X"
+  },
+  
+  "symbols": {
+    "\u2605": "*",
+    "\u2606": "*",
+    "\u25cf": "*",
+    "\u25cb": "o",
+    "\u25a0": "#",
+    "\u25a1": "[]",
+    "\u25c6": "<>",
+    "\u25c7": "<>",
+    "\u25b2": "^",
+    "\u25bc": "v",
+    "\u25ba": ">",
+    "\u25c4": "<",
+    "\u25b6": ">",
+    "\u25c0": "<",
+    "\u2022": "*",
+    "\u00b7": "*",
+    "\u2027": "..."
+  },
+  
+  "punctuation_misc": {
+    "\u00bf": "?",
+    "\u00a1": "!"
+  },
+  
+  "invisible": {
+    "\u200B": "",
+    "\u200C": "",
+    "\u200D": "",
+    "\u200E": "",
+    "\u200F": "",
+    "\uFEFF": ""
+  },
+  
+  "exclusions": {
+    "extensions": [".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico", ".pdf", ".zip", ".tar", ".gz", ".bin"],
+    "patterns": ["node_modules", ".git", "__pycache__", ".venv", "venv", "dist", "build"]
+  },
+  
+  "allowed_files": ["README.md", "CONTRIBUTING.md", "CHANGELOG.md", "LICENSE"]
+}
