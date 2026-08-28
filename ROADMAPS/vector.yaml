@@ -1,0 +1,15 @@
+type: ROADMAP_VECTOR
+version: '1.0'
+intent_hash: 0XMNEMO_ROADMAP_V1_20260626
+date: '2026-06-26'
+repo: gerivdb/Mnemo
+strate: L4-TOOLS
+vector:
+  horizon: 90d
+  direction:
+  - 'maintenir role: Mnemo'
+  velocity_observed: 0.0
+  mass: 0.5
+  last_amended: '2026-06-26T02:08:03.661795'
+  _inferred: true
+  _inference_source: generate_roadmap_template.py (mass deploy)

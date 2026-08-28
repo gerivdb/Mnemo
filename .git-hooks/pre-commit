@@ -1,0 +1,3 @@
+#!/bin/sh
+# KiloCode ? MDU validation hook
+python "$(git rev-parse --show-toplevel)/.kilo/scripts/validate-design.py" || exit 1

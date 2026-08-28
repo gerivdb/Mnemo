@@ -1,0 +1,14 @@
+type: ROADMAP_HISTORY
+version: '1.0'
+intent_hash: 0XMNEMO_ROADMAP_V1_20260626
+date: '2026-06-26'
+repo: gerivdb/Mnemo
+entries:
+- date: '2026-06-26T02:08:03.661795'
+  action: creation
+  description: Deploiement RSS-v3 masse — generate_roadmap_template.py
+  actor: Kilo agent
+  intent_hash: 0XMNEMO_ROADMAP_V1_20260626
+  changes:
+  - Creation ROADMAPS/ avec 5 fichiers
+  reference: ADR-20260625-003-VECTUS

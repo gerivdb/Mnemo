@@ -1,0 +1,17 @@
+type: ROADMAP_MILESTONES
+version: '1.0'
+intent_hash: 0XMNEMO_ROADMAP_V1_20260626
+date: '2026-06-26'
+repo: gerivdb/Mnemo
+milestones:
+- id: M-001
+  name: ROADMAPS/ initial
+  description: Deploiement RSS-v3 via generate_roadmap_template.py
+  owner: SCO7
+  status: done
+  target_date: '2026-06-26'
+  dependencies: []
+  unlocks:
+  - VECTOR_COLLECTOR
+  - RESULTANTE_ENGINE
+  reference: ADR-20260625-003-VECTUS
