@@ -1,0 +1,20 @@
+{
+  "repo": "Mnemo",
+  "statement_hash": "2935b5acc210424b658e184b203245f6",
+  "curx_validated": true,
+  "result": {
+    "anomalies": [
+      "Missing teaches edges",
+      "Missing prerequisite_of edges",
+      "Missing consolidates edges"
+    ],
+    "causal_accuracy": 0.88,
+    "counterfactual_depth": 0.61,
+    "edges_validated": [],
+    "fragility": 0.15,
+    "generalization": 0.75,
+    "status": "ok"
+  },
+  "level": 1,
+  "validated_at": "2026-09-12T01:58:45.584778+00:00"
+}
