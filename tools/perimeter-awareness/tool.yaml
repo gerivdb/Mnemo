@@ -1,0 +1,32 @@
+# intent_hash: 0xPERIMETER_AWARENESS_TOOL_20260916
+name: "perimeter-awareness"
+version: "1.0.0"
+description: "Universal Self-Recognition Protocol — Auto-reconnaissance du périmètre d'implémentation depuis n'importe quel repo"
+entry_point: "perimeter_awareness.py"
+intent_hash: "0xPERIMETER_AWARENESS_20260916"
+category: "governance"
+requires:
+  - pyyaml
+  - python >= 3.10
+capabilities:
+  - self_check
+  - discover_perimeter
+  - register_in_perimeter
+  - validate_bidirectional
+  - validate_engines
+  - full_pipeline
+dependencies:
+  - kg-l (health/validate_causal)
+  - talex (import test)
+  - ctulu (import test)
+  - anamorphoser (import test)
+  - causal-guard (optional)
+  - causal-drift (optional)
+  - known_repositories.yaml (SOT)
+  - SWARM.yaml (perimeter registry)
+tags:
+  - governance
+  - auto-reconnaissance
+  - perimeter
+  - self-recognition
+  - cross-repo
