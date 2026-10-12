@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-generate_rules.py — Generate .githooks/rules.sh from multi-repo-governance.yaml
+generate_rules.py - Generate .githooks/rules.sh from multi-repo-governance.yaml
 
 Reads the branch_routing section of the governance manifest and produces
 a bash-sourced rules.sh file with FORBIDDEN_PATHS, ALLOWED_PREFIXES,
@@ -30,7 +30,7 @@ except ImportError:
     HAS_YAML = False
 
 
-# ─── Constants ────────────────────────────────────────────────────────────────
+# --- Constants ----------------------------------------------------------------
 
 HOOK_VERSION = "1.0.0"
 HOOK_INTENT_HASH = "0xBRG_GENERATE_RULES_20260526"
@@ -53,20 +53,65 @@ def generate_rules(manifest_path: str, repo_name: str, output_path: str) -> None
             print(f"Error: Invalid YAML in manifest: {e}", file=sys.stderr)
             sys.exit(1)
     else:
-        print("Error: PyYAML required — pip install pyyaml", file=sys.stderr)
+        print("Error: PyYAML required - pip install pyyaml", file=sys.stderr)
         sys.exit(1)
 
     routing = manifest.get("branch_routing", {})
     repos = routing.get("repositories", {})
-    repo_config = repos.get(repo_name)
 
-    if not repo_config:
-        print(f"Warning: No branch_routing found for {repo_name}", file=sys.stderr)
-        print(f"Available: {', '.join(repos.keys())}", file=sys.stderr)
-        sys.exit(1)
+    # `repo_name` accepte trois formes, car le manifeste route des BRANCHES,
+    # pas des dpts :
+    #   1. une cl de routage exacte            -> `fix/*`
+    #   2. une branche matchant une cl         -> `fix/gateway-foo`
+    #   3. un nom de dpt                     -> `GATEWAY-MANAGER`
+    # Les formes 1 et 2 sont les seules ancres dans le manifeste ; la forme 3
+    # retombe sur le routage global (toutes les cls), car aucun dpt n'a
+    # d'entre propre.
+    repo_config = repos.get(repo_name)
+    if repo_config is None:
+        import fnmatch
+        for key, cfg in repos.items():
+            if fnmatch.fnmatch(repo_name, key):
+                repo_config = cfg
+                repo_name = key
+                break
+    if repo_config is None:
+        repo_config = {"_routing_scope": "global"}
+        repo_name = "(routage global)"
 
     forbidden = repo_config.get("forbidden_paths", [])
-    prefixes = repo_config.get("allowed_branch_prefixes", [])
+
+    # Les prfixes autoriss ne sont PAS un champ du manifeste : ils sont
+    # dductibles des cls de routage elles-mmes. `main` -> `main`,
+    # `release/*` -> `release/`, etc. Une branche qui ne matche aucune cl de
+    # routage n'est routable pour aucun dpt.
+    prefixes = repo_config.get("allowed_branch_prefixes")
+    if not prefixes:
+        derived = []
+        for key in repos:
+            derived.append(key[:-2] if key.endswith("/*") else key)
+        prefixes = sorted(set(derived))
+
+    # Normalisation du sparateur (ADR-2026-10-12-001). Le manifeste peut fournir
+    # des prfixes NUS (`feat` sans slash) et la drivation `key[:-2]` aussi :
+    # sans slash, `feat` matche `feature-x` dans le glob du garde (faux positif).
+    # On force le slash final sur tout prfixe non-trunk, quelle que soit sa
+    # source (manifeste ou drivation), pour rendre le sparateur tanche.
+    # `main`/`develop` restent exacts (branches trunk, pas de glob).
+    _trunk = {"main", "develop", "dev", "master"}
+    _norm = set()
+    for _p in prefixes:
+        _p = ("" if _p is None else str(_p)).strip()
+        if not _p:
+            continue
+        if _p in _trunk:
+            _norm.add(_p)
+        elif not _p.endswith("/"):
+            _norm.add(_p + "/")
+        else:
+            _norm.add(_p)
+    prefixes = sorted(_norm)
+
     redirects = repo_config.get("redirect_map", {})
 
     forbidden_str = "|".join(forbidden) if forbidden else ""
@@ -77,8 +122,8 @@ def generate_rules(manifest_path: str, repo_name: str, output_path: str) -> None
     now = datetime.datetime.now().isoformat()
     brgs_version = routing.get("version", "3.0")
 
-    content = f"""# .githooks/rules.sh — Auto-generated from multi-repo-governance.yaml
-# DO NOT EDIT MANUALLY — Run: python .githooks/generate_rules.py
+    content = f"""# .githooks/rules.sh - Auto-generated from multi-repo-governance.yaml
+# DO NOT EDIT MANUALLY - Run: python .githooks/generate_rules.py
 # Generated: {now}
 # BRGS Version: {brgs_version}
 # Repository: {repo_name}

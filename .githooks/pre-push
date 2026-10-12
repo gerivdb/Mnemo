@@ -18,7 +18,13 @@ REMOTE_NAME="$1"
 REMOTE_URL="$2"
 CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "DETACHED")
 REPO_ROOT=$(git rev-parse --show-toplevel)
-REPO_NAME=$(basename "${REPO_ROOT}")
+REPO_NAME=""
+for _url in $(git remote get-url "${REMOTE_NAME}" 2>/dev/null) $(git config --get "remote.${REMOTE_NAME}.url" 2>/dev/null); do
+    _base="${_url##*[/:]}"
+    _base="${_base%.git}"
+    if [ -n "${_base}" ]; then REPO_NAME="${_base}"; break; fi
+done
+if [ -z "${REPO_NAME}" ]; then REPO_NAME=$(basename "${REPO_ROOT}"); fi
 
 echo "[BRGS pre-push] Validating push → ${REMOTE_NAME} (${REMOTE_URL})"
 echo "[BRGS pre-push] Branch: ${CURRENT_BRANCH}"
@@ -140,7 +146,7 @@ guard3_check() {
 
     # Get changed files vs origin/main (three-dot: changes on this branch only)
     local changed_files
-    changed_files=$(git diff --name-only HEAD...origin/main 2>/dev/null || git diff --name-only HEAD 2>/dev/null || echo "")
+    changed_files=$(git diff --name-only origin/main...HEAD 2>/dev/null || echo "")
 
     if [ -z "${changed_files}" ]; then
         echo "[BRGS pre-push] ✅ Guard 3 — No changed files detected, skipping"
