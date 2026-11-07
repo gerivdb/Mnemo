@@ -21,6 +21,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
+# Ajout du chemin ENV3-repo/scripts pour le pont N243
+sys.path.insert(0, r"D:\DO\WEB\TOOLS\L0-CANON\ENV3-repo\scripts")
+from n243_gate_bridge import validate as n243_validate  # noqa: E402
+
 from src.mnemo.mnemo_core import MnemoCore, MemoryEntry, MemoryTier, Provenance
 
 
@@ -345,10 +349,13 @@ def _mnemo_entry_to_kg_l_node(entry: MemoryEntry) -> Dict[str, Any]:
 
 
 def _call_n243_gate(gate_client: Any, operation: str, payload: Dict) -> str:
-    """Appelle le gate N243 via client (WAZAA topic ou HTTP)."""
-    # TODO: Implémenter appel réel gate N243 via WAZAA
-    # Pour l'instant, simule APPROUVER
-    return "APPROUVER"
+    """Appelle le gate N243 via le pont ternaire (P12).
+
+    Délegue à n243_gate_bridge.validate() qui utilise
+    TernaryValidationGate (ENV3-repo/scripts/ternary_validation.py).
+    Remplace le hardcodé "APPROUVER" précédent.
+    """
+    return n243_validate(payload)
 
 
 # ──────────────────────────────────────────────────────────────────────────────
