@@ -1,0 +1,15 @@
+{
+  "name": "MNEMO",
+  "strate": "L4-TOOLS",
+  "citizen": true,
+  "status": "active",
+  "phi_cps": 0.45,
+  "metrics": {
+    "phi_cps": 0.45,
+    "latency_ms": 25,
+    "power_w": 7,
+    "adr_ref": "ADR-031",
+    "measured_at": "2026-07-26T05:14:52.281349Z",
+    "source": "default_from_adr_thresholds"
+  }
+}
