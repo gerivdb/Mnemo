@@ -1,0 +1,3729 @@
+{
+  "scopes": [
+    {
+      "repo": "Mnemo",
+      "scope_dir": "D:\\DO\\WEB\\TOOLS\\L4-TOOLS\\Mnemo",
+      "targets_total": 0,
+      "targets_existing": 0,
+      "targets_missing": 0,
+      "patterns_detected": 0,
+      "targets": [],
+      "patterns": []
+    }
+  ],
+  "kg_engines": {
+    "kg_l_targets": [
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "garde_fou",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: règle déclenchée au franchissement d'un seuil"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gguf",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Format binaire de poids LLM (magic 'GGUF', tenseurs + KV metadata)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "q243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Quantization base-243 : 5 trits <-> 2 octets, calcul natif ternaire packé (LLUX)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "piano_diff",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Format .piano-diff v2.0 : delta + RLE + header CRC32 (PIANO)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "kbin",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Conteneur KORX <= 512 octets : manifeste signé intent_hash + chunks (checksum CR"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "llux_native",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Inférence directe sur tenseurs ternaires packés par LLUX (q243_gemv/q243_matmul)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ternary_weights",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Poids {-1,0,+1} (BitNet Q1_58) consommables sans déquantisation"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "transport_ptx1",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Protocole TCP PIANO : HELLO->MANIFEST->CHUNK/CHUNK_PART->BYE->ACK, CRC32 payload"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "i2_s",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Format de blocs ternaires du fork BitNet (GGML_TYPE_I2_S=36) : codes 2-bit MSB-f"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "empirical_spec_port",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Pattern : spec source amont -> oracle Python sur données réelles -> portage -> é"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "fixture_cross_validation",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Protocol : fixtures binaires déterministes + résumé JSON pour validation croisée"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "boot_5ter",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Step de boot consommant KG-L/exports/domain_links.json avant toute réponse d'arc"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "alias_tina",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Nom fantôme introuvable dans la SOT — confusion probable avec TIMX (temporal_ser"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "plix",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Moteur central X-FORGE (L2-PLATFORM/PLIX) : codec vidéo ternaire, inférence q243"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "n243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Meta-orchestrateur cognitif L* (DRAFT 0.1.0) : supervision ternaire APPROUVER/SU"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "rlm_243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Runner récurrent L4-TOOLS : vote ternaire, orchestration PES, primitives C table"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "timx",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Runner temporel L4-TOOLS/SERVICES/TIMX : features temporelles, replay, prédictio"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "rootx",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Runner symbolique/causal L2-PLATFORM/CAUSALITY-ENGINE : inférence causale, valid"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "tlm_core",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Runner logique ternaire L4-TOOLS/TLM-LANG : parsing et exécution de logique tern"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "wazaa",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Bus événementiel L4-TOOLS : Intent, WAL append-only, EventServer WebSocket. Tran"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "llux_family",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Family incrementale N243 : meta-orchestrateur + 5 runners cognitifs (LLUX/RLM-24"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "7b_q243_operational",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Capacité à exécuter un modèle 7B au format .q243 de bout en bout : forward 32 co"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "zig_015_api_compat",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Breaking changes Zig 0.14->0.15 : std.io.getStdOut→std.fs.File.stdout + AnyWrite"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "westmere_cpu_target",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: CPU cible RADX/LLUX : Dual Xeon E5620 Westmere-EP 4C/8T @ 2.4 GHz. Flags : -Dcpu"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "windows_eap_stop",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: PowerShell $ErrorActionPreference=Stop transforme tout stderr natif en erreur te"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "radx_ngram_hasher",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Embedding RADX par Feature Hashing N-Grams : mots + trigrammes caractères, Murmu"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "murmurhash3_zig_015",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Implémentation Zig 0.15 MurmurHash3 32-bit avec wrapping arithmétique (*%, ^%) e"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "zig_shift_width_type",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Zig 0.15 impose que le montant de shift soit un entier de largeur bornée (ex: u3"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "lukas_prestation",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Application de gestion prestations v0.6 : CRUD generique + KG declaratif + expor"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "l6_work",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Strate L6-WORK : profil DELIVERY (repos livrables client). Isolée de L1-L5 (infr"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "delivery_profile",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Profil DELIVERY (L6) : artefact unique .exe, PyInstaller --onefile --noconsole, "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ecosystem_queue",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: File d'attente locale asynchrone (backend/db.py) pour evenements ecosysteme (WAZ"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "is_l6_dev",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Flag de detection environnement L6 developpement (backend/env.py). Active integr"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "is_packaged_client",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Flag mode client empaquete (backend/env.py). True dans .exe PyInstaller frozen. "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "singleton_mutex_win32",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Preflight singleton Windows via CreateMutexW (nom local LukasPrestations_Singlet"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "pyinstaller_onefile_noconsole",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Empaquetage PyInstaller --onefile --noconsole (bootloader runw.exe). Demarrage s"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "l6_ecosystem_integration",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Integration controlee L6<->ecosysteme : WAZAA (bus swarm), TRIX (routeur central"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gemv_f32",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: General GEMV f32 kernel optimized SSE4.2. Supports Q4_0, F16, F32 weights. Domai"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "q243_native",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Strict domain for native .q243 inference : dispatch uniquement vers kernels PIAN"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "piano_q243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Kernel PIANO dedie pour format .q243 : instructions SSSE3/SSE4.2 (pshufb, pmaddw"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "rbf_cluster",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Cluster de fonctions de base radiale (RBF) : similarite deterministe par centres"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "quasicrystal_lattice",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Pavages Penrose-Hubbard apériodiques : spins ternaires, decodage non-autoregress"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "penrose_tiling_node",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Noeud de pavage Penrose : unite de relaxation Metropolis synchrone. Domain: neur"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "induction_circuit",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Circuit d induction mecaniste : tete d attention decompilee en graphe de connais"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "activation_vector",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Vecteur d activation : etat calcule par RBF cluster, consomme par KG-L. Domain: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "weight_vindex",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Index de poids ternaires (vindex) : mapping tenseurs -> entiers {-1,0,+1}. Domai"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "metropolis_relaxation",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Relaxation Metropolis synchrone : convergence vers etat de basse energie sur pav"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "runner_contract",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Contrat de runner ACP : schema de stub genere par operationalizer L4. Domain: ne"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "anamorphose",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Transposition ternaire PLIX vers PIANO via base-243"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "holographie",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Transposition PIANO vers graphe d'interférence SPIDX"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "synesthesie",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Transposition synesthésique simultanée 5 canaux PLIX/PIANO/TALEX/SPIDX/WAZAA"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "homeomorphisme",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Préservation structurelle cosinus > 0.99 entre v0.3 et v0.4+"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "synthcore",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Noyau d'orchestration simultanée 5 canaux EGMI via CTULU N+3"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "strate_minus_one",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Couche bare-metal Ring 0 Zig (TRIX/FLEX) cold boot <2s"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "anamorphic_engine",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Moteur déformation ternaire 5 modes (twist/fold/stretch/compress/invert)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "holographic_engine",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Moteur interférence cognitive PIANO vers SPIDX via CTULU kernels"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "synesthetic_bridge",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Pont inter-canaux 5 canaux via CTULU bridge/adapters"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "scheduler_ternaire_243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Scheduler TRIX 3 états (APPROVER/SUSPENDRE/REJETER) table 243"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "numa_affinity",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Affinity scheduler FLEX pour Dual Xeon E5620 (2 sockets, 12MB L3)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "codedb_runtime_16",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: CodeDB-E5620 AgentRegistry 16 threads NUMA-aware"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ctulu",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: N+3 Orchestration layer, CTULU engine"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "piano",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Format PIANO v2.0 base-243 delta+RLE+CRC32"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "spidx",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: SPIDX graphe d'interférence 2048 nœuds"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "talex",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: TALEX 17 templates biomimétiques narratifs"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "flex",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: FLEX NUMA/affinity/cache/thermal/KIX"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "trix",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: TRIX scheduler ternaire 243 états bare-metal"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "codedb",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: CodeDB-E5620 AgentRegistry 16 threads NUMA-aware"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "projects",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: PRD-MOC Intent projects a Plan (intent:projects)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "amends",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Patch amends a Plan (patch:amends)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "plan_extends",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Patch extends a Plan (payload.mode=extend)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "plan_replaces",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Patch replaces a Plan (payload.mode=replace)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "supersedes",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Plan supersedes previous version (Plan@v_n supersedes Plan@v_{n-1})"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "preserves",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Patch preserves an Invariant (hard constraint)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "violates",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Patch violates an Invariant"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "sandboxes",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Sandbox explores a Plan (Swarm-Lease TTL)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "validates",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Verdict validates a Patch (decision=accept)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "rejects",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Verdict rejects a Patch (decision=reject)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "defers",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Verdict defers a Patch (decision=defer)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "simulates",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Plan simulates ActiveTore run (Plan -> run)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "constrains",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: ActiveTore run constrains Plan dependencies (regime feedback)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "kix",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from kix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "orchestrateur",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from kix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "runners",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from kix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "rlm",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from kix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "nexus",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from kix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "dépendances",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from kix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "zig",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from trix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "voltx",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "vault",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "orchestrator",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "conscience",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "sparql",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "tore",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "synesthésie",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "visualisation",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "intent",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "écosystème",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from voltx-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "syscall",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from trix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: Concept from trix-verse (VERSES sync)"
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "2025-0303-GERI CMS V2",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "2025-0902-optimiser-Perplexity",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "2025-0909-DMR",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "2025-1103-DOC-UNIV-DEV",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "APOLLO",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ARES",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ATHENA",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ATLAS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "BIRDY",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "BLO",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "BOINC-LLM-P2P",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "BRAIN",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "BRAIN-CLI",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "BRAIN-DOCS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CANDIDATOR",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CAPTA-4D",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CLINE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CLIP-FACTORY",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "COMET",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CONTAINER-ORCHESTRATOR",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CURX",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "CodeDB-E5620",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "DAG-3",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "DATA-MINER",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "DMR",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "DOC-UNIV-DEV",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "DevTools",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "DevTools-CLI",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ECOS-CLI",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ECOS-C_cli",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ECOYSTEM",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "EMIT",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "FERMI-EVER",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "FLUENCE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "FLUENCE-CLI",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "FORGE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GATEWAY-MANAGER",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GERI-VON-DER-BITSH",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GERIBOOKING",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GOST",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GOVERNANCE-HUB",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GVDB-MEDIA",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "GeriCode",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "Gitnote",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "HERMES",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "HERMES-NousResearch",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "HOLMES",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "IRIS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KEEL",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KG-L",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KG-Test",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KIVA",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KIVA-CLI",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KORX",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "KRONOS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LARQL-243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LLM-CORE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LLM-REPO",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LLUX",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LOOPX",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LP",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "LYCOS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "MATRIX",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "Mnemo",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "Mnemo-SRC",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "OBS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "OBSCURA",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ONTOLOGY",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ONTOLOGY_MC",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "OPENCLAW-CLI",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "OUROBOROS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "PHOTON",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "PITCH-1",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "PRIMUS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "PULSE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "REPO-STANDARDS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "REPOMIX-FORK",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-243",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-CONFIG",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-DEPLOY",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-GRAPH",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-INCIDENT",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-MDU",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-METRICS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-RELEASE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "RLM-SECURE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ROCK-REIMS-AGENDA",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "SABRE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "SKILLS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "STYX",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "TLM-LANG",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "TOOL-FACTORY-1",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "TOPOS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "TQL",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "TRANSCENDANCE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "UAE",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "VDB",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "VERSES",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "VERSES-HUB",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "VERSUS",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "VULKAN",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "WAZAA-Evolution-Foundation",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "appflowy-mcp-server",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "auto-dev",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "comet-devcomet-extension",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "connard-design",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "diff0-fork",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "diffscope-fork",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "ecos-sync",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-book-cloner",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-04",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-06",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-07",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-31",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-31-8a007911",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-44",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-44-6e430086",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-1040b548",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-2382051c",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-2b026d6f",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-37ca8215",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-7e7f9891",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-d2b899fa",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-efc178b0",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-f4cc096f",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-68-fa2ae71e",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-90",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-07-36-93",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-16",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-16-11063d43",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-81",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-81-78bb3af7",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-81-b96fdfb0",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-81-c4d82718",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-2-09-18-81-cbe1d349",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-12-c47-restart88",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01-1674ad96",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01-25cb21bb",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01-30589a0b",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01-63e4b22b",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01-925d0625",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-28-01-d69163df",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-29-04",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-29-76",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-32-05",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri-cms-3-g16-v01",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "geri12cmsv74",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-100-27",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-75",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-88",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-88-40d908ce",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-88-8e4ddf9f",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-88-ec0eae47",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-88-fd509af9",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-93",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-93-2360c28b",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-93-3ab93a40",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-97",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-97-200ac1b7",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-97-7a335ab9",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-98-25",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericms-v2-99-26",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv26",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv36",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv38",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv40",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv40b-33-main-Vwindsurf--test",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv41",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv42",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv43",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv44",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv47",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv49-26",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv50-58",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv51",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv52",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv52-27",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv53",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv54",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv55",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv56",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv61",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv61-43",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv62",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv63",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv64",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv64-6e67fb2d",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv65",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv65-309182ae",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv65-89",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv65-aae43535",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv66",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv66-5ed0ac10",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv67",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv68",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv68-4f1458bf",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv69-61",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv70",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv73",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "gericmsv73-70",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "llama.cpp",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "loopany-platform",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "morphohdl-anamorphic-growth",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "opensrc",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "personae",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "repomix",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "sonar-driven-design",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "stage-craft-control-hub",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "test-ecos-privacy-repo",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "triadic-compound-eye",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "unified-design",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "vscode-lm-proxy",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "vsix-ai-orchestrator",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "concept",
+        "name": "zen-mcp-modified",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Concept KG-L: "
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:PIANO/src/emitters/piano_llux_binding.zig -> repo:LLUX/src/http_server.zig (binds_to)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: binds_to"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:PIANO/src/emitters/piano_llux_binding.zig -> repo:PLIX/src/piano_diff/root.zig (binds_to)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: binds_to"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:N243 -> repo:LLUX (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:N243 -> repo:RLM-243 (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:N243 -> repo:SERVICES/TIMX (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:N243 -> repo:CAUSALITY-ENGINE (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "repo:N243 -> repo:TLM-LANG (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "concept:lukas_prestation -> concept:l6_ecosystem_integration (integrates_with)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: integrates_with"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "ctulu -> plix (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "ctulu -> piano (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "ctulu -> spidx (orchestrates)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: orchestrates"
+      },
+      {
+        "engine": "kg-l",
+        "category": "bridge",
+        "name": "ctulu -> kg-l (validated_by)",
+        "status": "existing",
+        "path": "exports\\domain_links.json",
+        "references": [
+          "exports\\domain_links.json"
+        ],
+        "rationale": "Bridge KG-L: validated_by"
+      }
+    ],
+    "voltx_targets": [
+      {
+        "engine": "voltx",
+        "category": "concept",
+        "name": "VERSES",
+        "status": "existing",
+        "path": "NEXUS\\INTENTS\\INTENT-KG-L-GOVERNANCE-TRACE-20260914.md",
+        "references": [
+          "NEXUS\\INTENTS\\INTENT-KG-L-GOVERNANCE-TRACE-20260914.md"
+        ],
+        "rationale": "Module VERSES intégré dans VOLTX"
+      },
+      {
+        "engine": "voltx",
+        "category": "bridge",
+        "name": "VOLTX <-> KG-L",
+        "status": "existing",
+        "path": "NEXUS\\INTENTS\\INTENT-KG-L-GOVERNANCE-TRACE-20260914.md",
+        "references": [
+          "NEXUS\\INTENTS\\INTENT-KG-L-GOVERNANCE-TRACE-20260914.md"
+        ],
+        "rationale": "Bridge VOLTX-KG-L détecté"
+      },
+      {
+        "engine": "voltx",
+        "category": "routine",
+        "name": "verses_versioning",
+        "status": "existing",
+        "path": "PLATFORM\\scripts\\platform\\ontology_integration_vault_consciousness.py",
+        "references": [
+          "PLATFORM\\scripts\\platform\\ontology_integration_vault_consciousness.py"
+        ],
+        "rationale": "Script VERSES intégré dans VOLTX"
+      },
+      {
+        "engine": "voltx",
+        "category": "bridge",
+        "name": "KG-L <-> VOLTX bridge",
+        "status": "existing",
+        "path": "PLATFORM\\scripts\\platform\\tore_engine.py",
+        "references": [
+          "PLATFORM\\scripts\\platform\\tore_engine.py"
+        ],
+        "rationale": "Bridge script KG-L-VOLTX"
+      }
+    ],
+    "verses_targets": [
+      {
+        "engine": "verses",
+        "category": "concept",
+        "name": "verse-discipline",
+        "status": "existing",
+        "path": "personae_mapping.md",
+        "references": [
+          "personae_mapping.md"
+        ],
+        "rationale": "Concept VERSES discipline"
+      }
+    ],
+    "overlap_analysis": {
+      "kg_l_only": [
+        "2025-0303-GERI CMS V2",
+        "2025-0902-optimiser-Perplexity",
+        "2025-0909-DMR",
+        "2025-1103-DOC-UNIV-DEV",
+        "243",
+        "7b_q243_operational",
+        "APOLLO",
+        "ARES",
+        "ATHENA",
+        "ATLAS",
+        "BIRDY",
+        "BLO",
+        "BOINC-LLM-P2P",
+        "BRAIN",
+        "BRAIN-CLI",
+        "BRAIN-DOCS",
+        "CANDIDATOR",
+        "CAPTA-4D",
+        "CLINE",
+        "CLIP-FACTORY"
+      ],
+      "voltx_only": [
+        "KG-L <-> VOLTX bridge",
+        "VOLTX <-> KG-L",
+        "verses_versioning"
+      ],
+      "verses_only": [
+        "verse-discipline"
+      ],
+      "kg_l_voltx_overlap": [
+        "VERSES"
+      ],
+      "kg_l_verses_overlap": [],
+      "voltx_verses_overlap": [],
+      "all_three_overlap": [],
+      "kg_l_count": 327,
+      "voltx_count": 4,
+      "verses_count": 1,
+      "kg_l_only_count": 326,
+      "voltx_only_count": 3,
+      "verses_only_count": 1
+    }
+  },
+  "argus_differential": null,
+  "global_summary": {
+    "total_targets": 332,
+    "total_existing": 0,
+    "total_missing": 0,
+    "total_patterns": 0,
+    "scopes_count": 1,
+    "kg_engines_count": 332,
+    "argus_differential_items": 0,
+    "argus_differential_alignment": null
+  }
+}
